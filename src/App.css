@@ -1,0 +1,127 @@
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  width: 100%;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+/* Override Bootstrap container class */
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  margin: 0;
+}
+
+/* Make the navbar full width and bigger */
+.navbar {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0; /* Increased vertical padding */
+  min-height: 80px; /* Set minimum height */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Larger brand text */
+  padding: 0.5rem 1rem;
+}
+
+.nav-link {
+  font-size: 1.1rem; /* Larger nav links */
+  padding: 0.5rem 1rem !important;
+}
+
+/* Ensure cards take full width of their container */
+.card {
+  width: 100%;
+}
+
+/* Improve form layout in signup page */
+form {
+  width: 100%;
+}
+
+/* Make rows and columns full width */
+.row {
+  width: 100%;
+  margin: 0;
+}
+
+.col-md-4,
+.col-md-6 {
+  padding: 1rem;
+}
+
+/* Ensure content is properly centered */
+.text-center {
+  width: 100%;
+}
+
+/* Remove any max-width constraints */
+@media (min-width: 768px) {
+  .container-fluid {
+    max-width: 100%;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}

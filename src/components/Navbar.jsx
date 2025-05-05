@@ -7,9 +7,10 @@ const Navbar = () => {
   const navbarCollapse = useRef(null);
 
   const handleLinkClick = () => {
-    // Close the navbar when a link is clicked
-    const bsCollapse = new bootstrap.Collapse(navbarCollapse.current);
-    bsCollapse.hide();
+    // Directly remove the show class instead of using Bootstrap's collapse
+    if (navbarCollapse.current) {
+      navbarCollapse.current.classList.remove("show");
+    }
   };
 
   return (

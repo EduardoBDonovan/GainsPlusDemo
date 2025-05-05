@@ -1,8 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
+import { useRef } from "react";
 import logo from "../assets/gainsplusLogo.png";
 
 const Navbar = () => {
   const location = useLocation();
+  const navbarCollapse = useRef(null);
+
+  const handleLinkClick = () => {
+    // Close the navbar when a link is clicked
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse.current);
+    bsCollapse.hide();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -25,7 +33,11 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className="collapse navbar-collapse"
+          id="navbarNav"
+          ref={navbarCollapse}
+        >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link
@@ -35,6 +47,7 @@ const Navbar = () => {
                     : "text-dark"
                 }`}
                 to="/GainsPlusDemo/"
+                onClick={handleLinkClick}
               >
                 Home
               </Link>
@@ -47,6 +60,7 @@ const Navbar = () => {
                     : "text-dark"
                 }`}
                 to="/GainsPlusDemo/features"
+                onClick={handleLinkClick}
               >
                 Features
               </Link>
@@ -59,6 +73,7 @@ const Navbar = () => {
                     : "text-dark"
                 }`}
                 to="/GainsPlusDemo/pricing"
+                onClick={handleLinkClick}
               >
                 Pricing
               </Link>
@@ -71,6 +86,7 @@ const Navbar = () => {
                     : "text-dark"
                 }`}
                 to="/GainsPlusDemo/express-interest"
+                onClick={handleLinkClick}
               >
                 Express Interest
               </Link>

@@ -44,13 +44,13 @@ const Home = () => {
           </p>
           <div className="d-grid gap-3 d-md-flex">
             <Link
-              to="/GainsPlusDemo/signup"
+              to="/GainsPlusDemo/express-interest"
               className="btn btn-primary btn-lg px-5"
             >
-              Start Earning Today
+              Express Interest
             </Link>
             <Link
-              to="/GainsPlusDemo/about"
+              to="/GainsPlusDemo/features"
               className="btn btn-outline-primary btn-lg px-5"
             >
               Learn More

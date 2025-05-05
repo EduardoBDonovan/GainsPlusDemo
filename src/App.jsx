@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
-import Signup from "./pages/Signup";
+import ExpressInterest from "./pages/ExpressInterest";
 import Pricing from "./pages/Pricing";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -20,7 +20,10 @@ function App() {
             <Route path="/GainsPlusDemo/" element={<Home />} />
             <Route path="/GainsPlusDemo/features" element={<Features />} />
             <Route path="/GainsPlusDemo/pricing" element={<Pricing />} />
-            <Route path="/GainsPlusDemo/signup" element={<Signup />} />
+            <Route
+              path="/GainsPlusDemo/express-interest"
+              element={<ExpressInterest />}
+            />
           </Routes>
         </main>
         <Footer />

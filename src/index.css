@@ -1,4 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -28,6 +34,24 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background-image: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(13, 110, 253, 0.05) 0px,
+      rgba(13, 110, 253, 0.05) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(13, 110, 253, 0.05) 0px,
+      rgba(13, 110, 253, 0.05) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  background-blend-mode: normal;
 }
 
 h1 {
@@ -65,4 +89,60 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, var(--primary-color), #6610f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-primary:hover {
+  color: var(--primary-color) !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.nav-link {
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
 }

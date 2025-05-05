@@ -5,7 +5,7 @@ const Features = () => {
     {
       title: "Content Monetization",
       description:
-        "Transform your fitness expertise into a sustainable business with our comprehensive monetization tools.",
+        "Transform your fitness expertise into a sustainable business with our revenue-sharing model. Keep the majority of your earnings while we handle the platform infrastructure.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,9 +19,9 @@ const Features = () => {
         </svg>
       ),
       items: [
+        "Low platform fees (5% or less)",
         "Multiple subscription tiers with custom pricing",
         "Pay-per-view content options",
-        "Bundled content packages",
         "Automated billing and invoicing",
         "Revenue analytics dashboard",
       ],

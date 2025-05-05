@@ -94,8 +94,9 @@ const Home = () => {
               </div>
               <h3 className="card-title h5 mb-3">Monetization</h3>
               <p className="card-text text-secondary">
-                Create subscription tiers, offer exclusive content, and earn
-                stable monthly income.
+                Keep up to 95% of your subscription revenue with our low
+                platform fees. Create subscription tiers and offer exclusive
+                content to grow your income.
               </p>
             </div>
           </div>

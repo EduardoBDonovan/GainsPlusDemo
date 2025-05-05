@@ -7,9 +7,8 @@ const Pricing = () => {
   const plans = [
     {
       name: "Free",
-      price: "0",
-      annualPrice: "0",
-      period: "month",
+      fee: "10%",
+      annualFee: "8%",
       description: "Perfect for fitness creators just starting their journey",
       features: [
         "Up to 50 subscribers",
@@ -23,9 +22,8 @@ const Pricing = () => {
     },
     {
       name: "Paid",
-      price: "29.99",
-      annualPrice: "287.90", // 29.99 * 12 * 0.8 (20% discount)
-      period: "month",
+      fee: "5%",
+      annualFee: "4%",
       description: "Ideal for growing fitness businesses",
       features: [
         "Unlimited subscribers",
@@ -58,8 +56,9 @@ const Pricing = () => {
             Simple, Transparent Pricing
           </h1>
           <p className="lead text-secondary mb-4">
-            Choose the perfect plan for your fitness business. All plans include
-            our core features and are designed to scale with your growth.
+            We only succeed when you succeed. Our pricing is based on a small
+            percentage of your subscription revenue, so you keep the majority of
+            your earnings.
           </p>
           <div className="d-flex justify-content-center align-items-center mb-4">
             <span className="me-2">Monthly</span>
@@ -95,13 +94,11 @@ const Pricing = () => {
                 <h3 className="card-title h4 mb-3">{plan.name}</h3>
                 <div className="d-flex align-items-baseline mb-4">
                   <span className="display-4 fw-bold">
-                    ${isAnnual ? plan.annualPrice : plan.price}
+                    {isAnnual ? plan.annualFee : plan.fee}
                   </span>
-                  <span className="text-secondary ms-2">
-                    /{isAnnual ? "year" : plan.period}
-                  </span>
+                  <span className="text-secondary ms-2">platform fee</span>
                 </div>
-                {isAnnual && plan.price !== "0" && (
+                {isAnnual && plan.fee !== "10%" && (
                   <p className="text-success mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +110,7 @@ const Pricing = () => {
                     >
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                     </svg>
-                    Save 20% with annual billing
+                    Save 20% on platform fees with annual billing
                   </p>
                 )}
                 <p className="text-secondary mb-4">{plan.description}</p>
@@ -143,12 +140,52 @@ const Pricing = () => {
                     plan.popular ? "btn-primary" : "btn-outline-primary"
                   }`}
                 >
-                  {plan.price === "0" ? "Get Started" : "Start Free Trial"}
+                  {plan.fee === "10%" ? "Get Started" : "Start Free Trial"}
                 </Link>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Transaction Fees */}
+      <div className="row mt-5 pt-5">
+        <div className="col-lg-8 mx-auto">
+          <div className="card">
+            <div className="card-body">
+              <h2 className="card-title h4 text-center mb-4">
+                Transaction Fees
+              </h2>
+              <p className="text-center mb-4">
+                Stripe processing fees are passed through at cost:
+              </p>
+              <div className="table-responsive">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Payment Method</th>
+                      <th>Fee</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Credit/Debit Cards</td>
+                      <td>2.9% + $0.30</td>
+                    </tr>
+                    <tr>
+                      <td>ACH Transfer</td>
+                      <td>0.8% (max $5)</td>
+                    </tr>
+                    <tr>
+                      <td>International Cards</td>
+                      <td>3.9% + $0.30</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* FAQ Section */}
@@ -169,7 +206,7 @@ const Pricing = () => {
                   data-bs-toggle="collapse"
                   data-bs-target="#faq1"
                 >
-                  What's included in the Free plan?
+                  How do platform fees work?
                 </button>
               </h2>
               <div
@@ -178,11 +215,11 @@ const Pricing = () => {
                 data-bs-parent="#pricingFAQ"
               >
                 <div className="accordion-body">
-                  The Free plan includes all essential features to get started,
-                  including basic content management, community chat, analytics,
-                  and mobile app access. You can upgrade to the Paid plan
-                  anytime to unlock advanced features and remove subscriber
-                  limits.
+                  Our platform fee is a percentage of your subscription revenue.
+                  For example, if you charge $10/month for a subscription, with
+                  our 5% platform fee, you'll keep $9.50 (minus Stripe
+                  processing fees). The fee is automatically calculated and
+                  deducted from your earnings.
                 </div>
               </div>
             </div>
@@ -203,8 +240,9 @@ const Pricing = () => {
                 data-bs-parent="#pricingFAQ"
               >
                 <div className="accordion-body">
-                  We accept all major credit cards, PayPal, and bank transfers.
-                  Enterprise customers can also request custom payment terms.
+                  We accept all major credit cards, PayPal, and bank transfers
+                  through Stripe. The processing fees vary by payment method and
+                  are passed through at cost.
                 </div>
               </div>
             </div>
@@ -216,7 +254,7 @@ const Pricing = () => {
                   data-bs-toggle="collapse"
                   data-bs-target="#faq3"
                 >
-                  Is there a free trial for the Paid plan?
+                  How do payouts work?
                 </button>
               </h2>
               <div
@@ -225,9 +263,12 @@ const Pricing = () => {
                 data-bs-parent="#pricingFAQ"
               >
                 <div className="accordion-body">
-                  Yes, we offer a 14-day free trial for the Paid plan. No credit
-                  card required to start. You can cancel anytime during the
-                  trial period.
+                  Payouts are processed automatically on a rolling basis. Once
+                  your balance reaches $50, we'll initiate a transfer to your
+                  connected bank account within 2-3 business days. You'll
+                  receive a 1099-K form if you process more than $20,000 in
+                  payments or have more than 200 transactions in a calendar
+                  year.
                 </div>
               </div>
             </div>
@@ -239,7 +280,7 @@ const Pricing = () => {
                   data-bs-toggle="collapse"
                   data-bs-target="#faq4"
                 >
-                  Can I switch between Free and Paid plans?
+                  Can I change my plan later?
                 </button>
               </h2>
               <div
@@ -262,10 +303,10 @@ const Pricing = () => {
       {/* CTA Section */}
       <div className="row mt-5 pt-5">
         <div className="col-12 text-center">
-          <h2 className="display-5 fw-bold mb-3">Still have questions?</h2>
+          <h2 className="display-5 fw-bold mb-3">Ready to Start Earning?</h2>
           <p className="lead text-secondary mb-4">
-            Our team is here to help you choose the right plan for your
-            business.
+            Join thousands of fitness creators who are already growing their
+            business with Gains+.
           </p>
           <Link
             to="/GainsPlusDemo/signup"

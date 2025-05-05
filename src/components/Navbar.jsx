@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/GainsPlusDemo/">
           Gains+
         </Link>
         <button
@@ -28,8 +28,10 @@ const Navbar = () => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
-                className={`nav-link ${currentPath === "/" ? "fw-bold" : ""}`}
-                to="/"
+                className={`nav-link ${
+                  currentPath === "/GainsPlusDemo/" ? "fw-bold" : ""
+                }`}
+                to="/GainsPlusDemo/"
               >
                 Home
               </Link>
@@ -37,9 +39,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  currentPath === "/about" ? "fw-bold" : ""
+                  currentPath === "/GainsPlusDemo/about" ? "fw-bold" : ""
                 }`}
-                to="/about"
+                to="/GainsPlusDemo/about"
               >
                 About
               </Link>
@@ -47,9 +49,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  currentPath === "/signup" ? "fw-bold" : ""
+                  currentPath === "/GainsPlusDemo/signup" ? "fw-bold" : ""
                 }`}
-                to="/signup"
+                to="/GainsPlusDemo/signup"
               >
                 Sign Up
               </Link>

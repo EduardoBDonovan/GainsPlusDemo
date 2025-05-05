@@ -18,5 +18,8 @@ export default defineConfig({
     fs: {
       strict: false,
     },
+    headers: {
+      "Content-Type": "application/javascript",
+    },
   },
 });

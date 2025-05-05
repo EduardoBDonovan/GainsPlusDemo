@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Features from "./pages/Features";
 import Signup from "./pages/Signup";
+import Pricing from "./pages/Pricing";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -14,10 +16,12 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/GainsPlusDemo/" element={<Home />} />
-            <Route path="/GainsPlusDemo/about" element={<About />} />
+            <Route path="/GainsPlusDemo/features" element={<Features />} />
+            <Route path="/GainsPlusDemo/pricing" element={<Pricing />} />
             <Route path="/GainsPlusDemo/signup" element={<Signup />} />
           </Routes>
         </main>
+        <Footer />
       </Router>
     </div>
   );

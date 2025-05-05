@@ -1,129 +1,250 @@
-const Signup = () => {
-  return (
-    <div className="container-fluid">
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-8">
-          <div className="row">
-            {/* Signup Form */}
-            <div className="col-md-6 mb-4">
-              <div className="card">
-                <div className="card-body">
-                  <h1 className="card-title text-center mb-4">
-                    Create Account
-                  </h1>
-                  <form>
-                    <div className="mb-3">
-                      <label htmlFor="name" className="form-label">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="name"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="email" className="form-label">
-                        Email address
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="password" className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Create a password"
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="confirmPassword" className="form-label">
-                        Confirm Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="confirmPassword"
-                        placeholder="Confirm your password"
-                      />
-                    </div>
-                    <div className="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="terms"
-                      />
-                      <label className="form-check-label" htmlFor="terms">
-                        I agree to the Terms of Service and Privacy Policy
-                      </label>
-                    </div>
-                    <div className="d-grid gap-2">
-                      <button type="submit" className="btn btn-primary">
-                        Create Account
-                      </button>
-                    </div>
-                    <div className="text-center mt-3">
-                      <p className="mb-0">
-                        Already have an account? <a href="/login">Log in</a>
-                      </p>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+import { useState } from "react";
 
-            {/* Benefits Section */}
-            <div className="col-md-6 mb-4">
-              <div className="card h-100">
-                <div className="card-body">
-                  <h2 className="card-title mb-4">Why Join Gains+?</h2>
-                  <ul className="list-unstyled">
-                    <li className="mb-4">
-                      <h5>✓ Personalized Workout Plans</h5>
-                      <p>
-                        Get customized workout routines based on your goals and
-                        fitness level.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <h5>✓ Progress Tracking</h5>
-                      <p>
-                        Monitor your improvements with detailed analytics and
-                        visualizations.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <h5>✓ Community Support</h5>
-                      <p>
-                        Connect with other fitness enthusiasts and share your
-                        journey.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <h5>✓ Expert Guidance</h5>
-                      <p>
-                        Access professional tips and advice to optimize your
-                        training.
-                      </p>
-                    </li>
-                  </ul>
-                  <div className="mt-4">
-                    <h5>Ready to start your fitness journey?</h5>
-                    <p>
-                      Join thousands of users who are already achieving their
-                      fitness goals with Gains+.
-                    </p>
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    userType: "user", // 'user' or 'influencer'
+    goals: [],
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log("Form submitted:", formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+    if (type === "checkbox") {
+      setFormData((prev) => ({
+        ...prev,
+        goals: e.target.checked
+          ? [...prev.goals, value]
+          : prev.goals.filter((goal) => goal !== value),
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+
+  return (
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-8">
+          <div className="card shadow">
+            <div className="card-body p-5">
+              <h1 className="text-center mb-4">Join Gains Plus</h1>
+              <p className="text-center mb-4">
+                Choose your path and start your fitness journey today
+              </p>
+
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label className="form-label">I want to join as:</label>
+                  <div className="d-flex gap-3">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="userType"
+                        id="userTypeUser"
+                        value="user"
+                        checked={formData.userType === "user"}
+                        onChange={handleChange}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="userTypeUser"
+                      >
+                        Fitness Enthusiast
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="userType"
+                        id="userTypeInfluencer"
+                        value="influencer"
+                        checked={formData.userType === "influencer"}
+                        onChange={handleChange}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="userTypeInfluencer"
+                      >
+                        Fitness Influencer
+                      </label>
+                    </div>
                   </div>
                 </div>
+
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                {formData.userType === "user" && (
+                  <div className="mb-4">
+                    <label className="form-label">Your Fitness Goals:</label>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="goalWeightLoss"
+                            value="weightLoss"
+                            checked={formData.goals.includes("weightLoss")}
+                            onChange={handleChange}
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="goalWeightLoss"
+                          >
+                            Weight Loss
+                          </label>
+                        </div>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="goalMuscleGain"
+                            value="muscleGain"
+                            checked={formData.goals.includes("muscleGain")}
+                            onChange={handleChange}
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="goalMuscleGain"
+                          >
+                            Muscle Gain
+                          </label>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="goalEndurance"
+                            value="endurance"
+                            checked={formData.goals.includes("endurance")}
+                            onChange={handleChange}
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="goalEndurance"
+                          >
+                            Endurance
+                          </label>
+                        </div>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="goalFlexibility"
+                            value="flexibility"
+                            checked={formData.goals.includes("flexibility")}
+                            onChange={handleChange}
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="goalFlexibility"
+                          >
+                            Flexibility
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {formData.userType === "influencer" && (
+                  <div className="mb-4">
+                    <label htmlFor="socialMedia" className="form-label">
+                      Social Media Links
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control mb-2"
+                      id="instagram"
+                      placeholder="Instagram Profile"
+                    />
+                    <input
+                      type="text"
+                      className="form-control mb-2"
+                      id="youtube"
+                      placeholder="YouTube Channel"
+                    />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="tiktok"
+                      placeholder="TikTok Profile"
+                    />
+                  </div>
+                )}
+
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary btn-lg">
+                    Create Account
+                  </button>
+                </div>
+              </form>
+
+              <div className="text-center mt-4">
+                <p className="mb-0">
+                  Already have an account?{" "}
+                  <a href="#" className="text-decoration-none">
+                    Log in
+                  </a>
+                </p>
               </div>
             </div>
           </div>

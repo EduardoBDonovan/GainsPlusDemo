@@ -2,10 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  const currentPath = location.pathname;
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link className="navbar-brand" to="/GainsPlusDemo/">
           Gains+
@@ -21,15 +20,12 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  currentPath === "/GainsPlusDemo/" ? "fw-bold" : ""
+                  location.pathname === "/GainsPlusDemo/" ? "fw-bold" : ""
                 }`}
                 to="/GainsPlusDemo/"
               >
@@ -39,17 +35,31 @@ const Navbar = () => {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  currentPath === "/GainsPlusDemo/about" ? "fw-bold" : ""
+                  location.pathname === "/GainsPlusDemo/features"
+                    ? "fw-bold"
+                    : ""
                 }`}
-                to="/GainsPlusDemo/about"
+                to="/GainsPlusDemo/features"
               >
-                About
+                Features
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  currentPath === "/GainsPlusDemo/signup" ? "fw-bold" : ""
+                  location.pathname === "/GainsPlusDemo/pricing"
+                    ? "fw-bold"
+                    : ""
+                }`}
+                to="/GainsPlusDemo/pricing"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/GainsPlusDemo/signup" ? "fw-bold" : ""
                 }`}
                 to="/GainsPlusDemo/signup"
               >

@@ -1,116 +1,141 @@
 const About = () => {
   return (
-    <div className="container-fluid">
-      {/* Mission Section */}
-      <div className="row justify-content-center mb-5">
-        <div className="col-12 text-center mb-5">
-          <h1 className="display-4">About Gains+</h1>
-          <p className="lead">
-            Empowering your fitness journey with smart technology
+    <div className="container py-5">
+      <div className="row">
+        <div className="col-lg-8 mx-auto text-center">
+          <h1 className="display-4 mb-4">Platform Features</h1>
+          <p className="lead mb-5">
+            Everything you need to build and grow your fitness business
           </p>
         </div>
       </div>
 
-      {/* Company Info Section */}
+      {/* Subscription Monetization */}
       <div className="row mb-5">
         <div className="col-md-6 mb-4">
           <div className="card h-100">
             <div className="card-body">
-              <h5 className="card-title">Our Mission</h5>
+              <h2 className="card-title h4">Subscription Monetization</h2>
               <p className="card-text">
-                Gains+ is dedicated to helping individuals achieve their fitness
-                goals through comprehensive tracking and personalized insights.
-                We believe that everyone deserves access to tools that make
-                fitness tracking simple and effective.
+                Create multiple subscription tiers with different benefits:
               </p>
-              <h5 className="mt-4">Our Vision</h5>
-              <p className="card-text">
-                To become the leading fitness tracking platform that helps
-                millions of people worldwide achieve their health and fitness
-                goals through data-driven insights and community support.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6 mb-4">
-          <div className="card h-100">
-            <div className="card-body">
-              <h5 className="card-title">Features</h5>
               <ul className="list-unstyled">
-                <li className="mb-3">
-                  <h6>✓ Workout Tracking</h6>
-                  <p>
-                    Comprehensive exercise logging with detailed metrics and
-                    progress visualization
-                  </p>
-                </li>
-                <li className="mb-3">
-                  <h6>✓ Progress Monitoring</h6>
-                  <p>
-                    Track your improvements with detailed analytics and
-                    performance metrics
-                  </p>
-                </li>
-                <li className="mb-3">
-                  <h6>✓ Goal Setting</h6>
-                  <p>
-                    Set and achieve your fitness objectives with our smart goal
-                    tracking system
-                  </p>
-                </li>
-                <li className="mb-3">
-                  <h6>✓ Performance Analytics</h6>
-                  <p>
-                    Get insights into your training patterns and optimize your
-                    workouts
-                  </p>
-                </li>
+                <li className="mb-2">✓ Monthly subscription options</li>
+                <li className="mb-2">✓ Custom discount codes</li>
+                <li className="mb-2">✓ Free trial periods</li>
+                <li className="mb-2">✓ Exclusive content access</li>
               </ul>
             </div>
           </div>
         </div>
+        <div className="col-md-6 mb-4">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Subscription Dashboard"
+            className="img-fluid rounded shadow"
+          />
+        </div>
       </div>
 
-      {/* Team Section */}
-      <div className="row justify-content-center">
-        <div className="col-12 text-center mb-4">
-          <h2>Our Team</h2>
-        </div>
-        <div className="col-md-4 mb-4">
-          <div className="card">
+      {/* Content Gating */}
+      <div className="row mb-5">
+        <div className="col-md-6 mb-4 order-md-2">
+          <div className="card h-100">
             <div className="card-body">
-              <h5 className="card-title">Alex Johnson</h5>
-              <p className="text-muted">Founder & CEO</p>
+              <h2 className="card-title h4">Content Gating</h2>
               <p className="card-text">
-                Fitness enthusiast and tech entrepreneur with 10+ years of
-                experience in health tech.
+                Control access to your premium content:
               </p>
+              <ul className="list-unstyled">
+                <li className="mb-2">✓ Video uploads with paywall</li>
+                <li className="mb-2">✓ Image galleries</li>
+                <li className="mb-2">✓ Downloadable resources</li>
+                <li className="mb-2">✓ Content scheduling</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div className="col-md-4 mb-4">
-          <div className="card">
+        <div className="col-md-6 mb-4 order-md-1">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Content Management"
+            className="img-fluid rounded shadow"
+          />
+        </div>
+      </div>
+
+      {/* Direct Messaging */}
+      <div className="row mb-5">
+        <div className="col-md-6 mb-4">
+          <div className="card h-100">
             <div className="card-body">
-              <h5 className="card-title">Sarah Chen</h5>
-              <p className="text-muted">Head of Product</p>
-              <p className="card-text">
-                Expert in user experience and product development in the fitness
-                industry.
-              </p>
+              <h2 className="card-title h4">Direct Messaging</h2>
+              <p className="card-text">Connect with your community:</p>
+              <ul className="list-unstyled">
+                <li className="mb-2">✓ 1-on-1 private chats</li>
+                <li className="mb-2">✓ Group discussions</li>
+                <li className="mb-2">✓ File sharing</li>
+                <li className="mb-2">✓ Message scheduling</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div className="col-md-4 mb-4">
-          <div className="card">
+        <div className="col-md-6 mb-4">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Messaging Interface"
+            className="img-fluid rounded shadow"
+          />
+        </div>
+      </div>
+
+      {/* Livestreams */}
+      <div className="row mb-5">
+        <div className="col-md-6 mb-4 order-md-2">
+          <div className="card h-100">
             <div className="card-body">
-              <h5 className="card-title">Michael Rodriguez</h5>
-              <p className="text-muted">Lead Developer</p>
-              <p className="card-text">
-                Full-stack developer passionate about creating innovative
-                fitness solutions.
-              </p>
+              <h2 className="card-title h4">Livestreams</h2>
+              <p className="card-text">Host interactive sessions:</p>
+              <ul className="list-unstyled">
+                <li className="mb-2">✓ Live fitness classes</li>
+                <li className="mb-2">✓ Q&A sessions</li>
+                <li className="mb-2">✓ Real-time chat</li>
+                <li className="mb-2">✓ Session recording</li>
+              </ul>
             </div>
           </div>
+        </div>
+        <div className="col-md-6 mb-4 order-md-1">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Livestream Interface"
+            className="img-fluid rounded shadow"
+          />
+        </div>
+      </div>
+
+      {/* Analytics */}
+      <div className="row">
+        <div className="col-md-6 mb-4">
+          <div className="card h-100">
+            <div className="card-body">
+              <h2 className="card-title h4">Engagement Analytics</h2>
+              <p className="card-text">Track your growth and performance:</p>
+              <ul className="list-unstyled">
+                <li className="mb-2">✓ Subscriber growth</li>
+                <li className="mb-2">✓ Content performance</li>
+                <li className="mb-2">✓ Revenue analytics</li>
+                <li className="mb-2">✓ Audience insights</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 mb-4">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Analytics Dashboard"
+            className="img-fluid rounded shadow"
+          />
         </div>
       </div>
     </div>
